@@ -1,0 +1,6 @@
+/* your styles go here */
+.img-fluid{
+    width: 350px;
+    height: 270px;
+    object-fit: cover;
+}
