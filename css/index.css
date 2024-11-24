@@ -1,9 +1,12 @@
 .page1{
-  background: url(../img/bg.png);
+  /* background: url(../img/bg.png); */
   width: 50%;
   margin: 0 auto;
   height: 100vh;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 h1{
   text-align: center;
@@ -34,13 +37,13 @@ a{
   font-weight: bold;
 }
 .conversation{
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
 .message {
   display: flex;
   align-items: flex-start;
-  gap: 10px; /* 间隔头像和文字 */
+  gap: 10px;
   max-width: 70%;
   margin: 50px 0;
   padding: 15px 20px;
@@ -54,45 +57,62 @@ a{
 .message.left {
   background: #e0f7fa;
   margin-left: 0;
-  flex-direction: row; /* 左对齐 */
+  flex-direction: row;
 }
 
 .message.right {
   background: #95ec69;
   margin-left: auto;
-  flex-direction: row-reverse; /* 右对齐 */
+  flex-direction: row-reverse;
 }
 .dash{
   width: 100%;
-  /* height: 1px; */
   border: 1px dashed black;
 }
 .avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* 圆形头像 */
-  object-fit: cover; /* 保持头像比例 */
-  border: 2px solid #ddd; /* 添加边框 */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
 }
 
 .message p {
-  margin: 0; /* 消除段落默认外边距 */
+  margin: 0;
 }
 .exit-image {
   margin-bottom: 20px;
   position: relative;
   margin-top: 50px;
   display: flex;
-  justify-content: flex-start; /* 初始位置从左侧滚入 */
-  opacity: 0; /* 初始隐藏 */
-  transform: translateX(-100%); /* 初始从屏幕左侧外部开始 */
+  justify-content: flex-start;
+  opacity: 0;
+  transform: translateX(-100%); 
 }
 
 .exit-avatar {
   width: 150px;
   height: 150px;
-  /* border-radius: 50%; */
   border: 3px solid #ddd;
   object-fit: cover;
   margin-right: 20px;
+}
+.bg{
+  width: 50%;
+}
+@media screen and (max-width:391px){
+  .page1{
+    width: 100%;
+    height: 50vh;
+  }
+  a{
+    font-size: 20px;
+  }
+  h1{
+    font-size: 24px;
+  }
+  .exit-image img{
+    width: 40px;
+    height: 40px;
+  }
 }
