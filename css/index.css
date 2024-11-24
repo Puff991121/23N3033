@@ -39,6 +39,7 @@ a{
 .conversation{
   width: 100%;
   margin: 0 auto;
+  display: none;
 }
 .message {
   display: flex;
