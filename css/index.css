@@ -37,9 +37,9 @@ a{
   font-weight: bold;
 }
 .conversation{
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
-  display: none;
+  /* display: none; */
 }
 .message {
   display: flex;
