@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>游客吸引问卷</title>
+    <link rel="stylesheet" href="./css/summarize.css" />
+  </head>
+  <body>
+    <div class="survey-container">
+      <h1>如果你是老板，你会如何吸引更多游客？</h1>
+      <form id="surveyForm">
+        <textarea
+          id="answer"
+          placeholder="请输入你的答案..."
+          rows="5"
+        ></textarea>
+        <div class="buttons">
+          <button type="submit" id="submitBtn">提交答案</button>
+          <button type="reset" id="resetBtn">重置</button>
+        </div>
+      </form>
+      <div id="responseMessage" class="hidden">
+        <h3>感谢您的回答！</h3>
+      </div>
+    </div>
+    <!-- 留言板部分 -->
+    <div class="message-board">
+      <h2>留言板</h2>
+      <form id="messageForm">
+      
+        <textarea
+          id="messageInput"
+          placeholder="分享你的看法或提问..."
+          rows="4"
+        ></textarea>
+        <button type="submit" id="submitMessageBtn">提交留言</button>
+      </form>
+
+      <div id="messagesContainer"></div>
+
+     
+    </div>
+    <script>
+      document
+        .getElementById("surveyForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 防止表单刷新页面
+
+          const answer = document.getElementById("answer").value;
+          if (answer.trim() === "") {
+            alert("请填写您的答案！");
+            return;
+          }
+
+          // 假设我们将答案提交到服务器或进行其他操作，当前仅显示感谢信息
+          document.getElementById("surveyForm").reset(); // 重置表单
+          document.getElementById("responseMessage").classList.remove("hidden"); // 显示感谢信息
+        });
+      // 模拟留言数据存储
+      let messages = [];
+      let currentPage = 1;
+      const messagesPerPage = 5; // 每页显示5条留言
+
+      // 处理留言提交
+      document
+        .getElementById("messageForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 防止表单刷新页面
+          const messageInput = document
+            .getElementById("messageInput")
+            .value.trim();
+
+          if (messageInput === "") {
+            alert("请填写您的留言！");
+            return;
+          }
+
+          // 将留言添加到数组中
+          messages.push(messageInput);
+          document.getElementById("messageInput").value = ""; // 清空输入框
+          renderMessages(); // 重新渲染留言
+        });
+
+      // 渲染留言内容
+      function renderMessages() {
+        const startIdx = (currentPage - 1) * messagesPerPage;
+        const endIdx = startIdx + messagesPerPage;
+        const messagesToDisplay = messages.slice(startIdx, endIdx);
+
+        const messagesContainer = document.getElementById("messagesContainer");
+        messagesContainer.innerHTML = ""; // 清空现有留言
+
+        messagesToDisplay.forEach((message) => {
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("message");
+          messageDiv.textContent = message;
+          messagesContainer.appendChild(messageDiv);
+        });
+
+        // 显示或隐藏分页按钮
+        document.getElementById("prevBtn").disabled = currentPage === 1;
+        document.getElementById("nextBtn").disabled =
+          currentPage * messagesPerPage >= messages.length;
+      }
+
+      // 翻页按钮事件
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderMessages();
+        }
+      });
+
+      document.getElementById("nextBtn").addEventListener("click", () => {
+        if (currentPage * messagesPerPage < messages.length) {
+          currentPage++;
+          renderMessages();
+        }
+      });
+
+      // 初始加载留言
+      renderMessages();
+    </script>
+  </body>
+</html>

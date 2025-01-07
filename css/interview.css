@@ -1,0 +1,132 @@
+/* 样式文件 style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.interview-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* 聊天框样式 */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    margin-top: 100px;
+}
+
+/* 对话气泡 */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    
+
+}
+
+/* 记者的对话 */
+.message.reporter {
+    justify-content: flex-start;
+}
+
+.message.reporter .avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.message.reporter .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* 老板的对话 */
+.message.boss {
+    justify-content: flex-end;
+}
+
+.message.boss .avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.message.boss .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* 对话框样式 */
+.message .text {
+    position: absolute;
+    top: -40px; /* 将对话框放置在头像上方 */
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px); /* 初始位置略微下方 */
+    transition: all 0.5s ease-out;
+}
+
+/* 动态显示对话框时的动画 */
+.message.show .text {
+    width: 80%;
+    font-size: 12px;
+    opacity: 1;
+    transform: translateY(0); /* 动画效果：对话框从下方弹出 */
+}
+
+/* 动画过渡效果 */
+@keyframes bounce {
+    0% {
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.message.show .text {
+    animation: bounce 0.6s ease-out;
+}
+.load-button{
+    width: 150px;
+    display: flex;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+    justify-content: center;
+}
