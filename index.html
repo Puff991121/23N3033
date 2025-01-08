@@ -13,31 +13,50 @@
         height: 100vh;
       }
       .background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 保持视频比例填满整个屏幕 */
-            z-index: -1; /* 确保视频在最底层 */
-        }
-        .fade-text a{
-          color: #8a77ec;
-        }
-        .textImg{
-          width: 600px;
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 保持视频比例填满整个屏幕 */
+        z-index: -1; /* 确保视频在最底层 */
+      }
+      .fade-text a {
+        color: #8a77ec;
+      }
+      .textImg {
+        width: 400px;
+        position: absolute;
+        right: 10px;
+        top:0px;
+      }
     </style>
   </head>
   <body>
     <video class="background-video" autoplay muted loop>
-      <source src="./img/video.mp4" type="video/mp4">
-    
-  </video>
-    <h1 class="fade-text">
-      <a href="./info.html">
-        <img src="./img/text.png" alt="" class="textImg">
-      </a>
-    </h1>
+      <source src="./img/video.mp4" type="video/mp4" />
+    </video>
+    <nav>
+      <ul>
+        <li>
+          <a href="./index.html">ホ一ムペ一ジ</a>
+        </li>
+        <li>
+          <a href="./info.html">成就</a>
+        </li>
+        <li>
+          <a href="./interview.html">インタビュー</a>
+        </li>
+        <li>
+          <a href="./photo.html">思い出</a>
+        </li>
+        <li>
+          <a href="./summarize.html">掲示板</a>
+        </li>
+      </ul>
+    </nav>
+    <a href="./info.html" >
+      <img src="./img/text.png" alt="" class="textImg fade-text" />
+    </a>
   </body>
 </html>

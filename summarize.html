@@ -5,36 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>游客吸引问卷</title>
     <link rel="stylesheet" href="./css/summarize.css" />
+    <style>
+       body {
+        background: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 1)
+          ),
+          linear-gradient(45deg, #00c6ff, #0072ff, #000000);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+      }
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="survey-container">
-      <h1>如果你是老板，你会如何吸引更多游客？</h1>
+      <h1>もしあなたが社長なら、どうやってもっと観光客を集めますか？</h1>
       <form id="surveyForm">
         <textarea
           id="answer"
-          placeholder="请输入你的答案..."
+          placeholder="入力してください..."
           rows="5"
         ></textarea>
         <div class="buttons">
-          <button type="submit" id="submitBtn">提交答案</button>
-          <button type="reset" id="resetBtn">重置</button>
+          <button type="submit" id="submitBtn">提出</button>
+          <button type="reset" id="resetBtn">リセット</button>
         </div>
       </form>
       <div id="responseMessage" class="hidden">
-        <h3>感谢您的回答！</h3>
+        <h3>ありがとうございます！</h3>
       </div>
     </div>
     <!-- 留言板部分 -->
     <div class="message-board">
-      <h2>留言板</h2>
+      <h2>掲示板</h2>
       <form id="messageForm">
       
         <textarea
           id="messageInput"
-          placeholder="分享你的看法或提问..."
+          placeholder="質問は......."
           rows="4"
         ></textarea>
-        <button type="submit" id="submitMessageBtn">提交留言</button>
+        <button type="submit" id="submitMessageBtn">提出</button>
       </form>
 
       <div id="messagesContainer"></div>
