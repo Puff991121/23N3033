@@ -48,6 +48,7 @@ h1 {
 /* 记者的对话 */
 .message.reporter {
     justify-content: flex-start;
+    margin-bottom: 50px;
 }
 
 .message.reporter .avatar {
@@ -73,7 +74,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: max(50px, 150px);
+    /* margin-top: max(50px, 150px); */
+    margin-top: 120px;
 }
 
 .message.boss .avatar img {
@@ -101,7 +103,7 @@ h1 {
 /* 动态显示对话框时的动画 */
 .message.show .text {
     width: 90%;
-    font-size: 12px;
+    font-size: 18px;
     opacity: 1;
     transform: translateY(0); /* 动画效果：对话框从下方弹出 */
 }
