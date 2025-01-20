@@ -103,7 +103,7 @@ h1 {
 /* 动态显示对话框时的动画 */
 .message.show .text {
     width: 90%;
-    font-size: 18px;
+    font-size: 14px;
     opacity: 1;
     transform: translateY(0); /* 动画效果：对话框从下方弹出 */
 }
